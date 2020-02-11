@@ -9,11 +9,12 @@ public class AddressBookController {
     AddressBook addressBook;
 
     public AddressBookController(AddressBook addressBook) {
+
         this.addressBook = addressBook;
     }
 
     public void add(Person p) {
-        addressBook.add(p);
+         addressBook.add(p);
     }
 
     public void set(int index, Person person) {

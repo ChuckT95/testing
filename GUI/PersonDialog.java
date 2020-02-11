@@ -1,5 +1,6 @@
-import org.jetbrains.annotations.Nullable;
+//import org.jetbrains.annotations.Nullable;
 
+import com.sun.istack.internal.Nullable;
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
