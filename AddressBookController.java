@@ -14,7 +14,7 @@ public class AddressBookController {
     }
 
     public void add(Person p) {
-        addressBook.add(p);
+         addressBook.add(p);
     }
 
     public void set(int index, Person person) {
