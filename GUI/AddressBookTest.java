@@ -1,8 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class AddressBookTest {
+  private List<Person> persons = new ArrayList<>();
 
   @Test
   void getPersons() {
@@ -11,6 +14,9 @@ class AddressBookTest {
 
   @Test
   void add() {
+    Person p = new Person("test","test","123 Test", "Test", "Test", "Test", "Test");
+    persons.add(p);
+    assertEquals(persons.size(),1);
   }
 
   @Test
