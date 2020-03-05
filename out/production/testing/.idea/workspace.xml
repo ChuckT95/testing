@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
   <component name="ChangeListManager">
     <list default="true" id="5c076e87-7a99-4cc6-9777-f09461bbdc55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/GUI/AddressBookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/AddressBookTest.java" afterDir="false" />
@@ -165,18 +166,25 @@
       </pane>
       <pane id="PackagesPane" />
     </panes>
+=======
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="822" />
+>>>>>>> Stashed changes
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< Updated upstream
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583077370415" />
+=======
+>>>>>>> Stashed changes
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/GUI" />
+<<<<<<< Updated upstream
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -208,7 +216,14 @@
   <component name="RunManager" selected="JUnit.AddressBookTest">
     <configuration name="AddressBookGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AddressBookGUI" />
+=======
+  </component>
+  <component name="RunManager">
+    <configuration name="PersonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+>>>>>>> Stashed changes
       <module name="testing" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -227,6 +242,7 @@
     </list>
     <recent_temporary>
       <list>
+<<<<<<< Updated upstream
         <item itemvalue="JUnit.AddressBookTest" />
         <item itemvalue="Application.AddressBookGUI" />
       </list>
@@ -459,4 +475,10 @@
       </state>
     </states>
   </component>
+=======
+        <item itemvalue="JUnit.PersonTest" />
+      </list>
+    </recent_temporary>
+  </component>
+>>>>>>> Stashed changes
 </project>
