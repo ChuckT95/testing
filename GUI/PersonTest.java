@@ -69,7 +69,7 @@ class PersonTest {
 
   @Test
   void containsString() {
-    String test = "test"; //Vlaue to test whether or not the Person contains this attribute
+    String test = "test"; //Value to test whether or not the Person contains this attribute
     Pattern pa = Pattern.compile(Pattern.quote(test), Pattern.CASE_INSENSITIVE); //Setup pattern
 
     //Check each attribute of Person to see if there is a match

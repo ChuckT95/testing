@@ -170,21 +170,21 @@ public class AddressBookGUI extends JFrame {
         });
         addEditDelPanel.add(addButton);
         editButton.setMnemonic('E');
-        editButton.addActionListener(e -> {
-            int selectedRow = nameList.getSelectedRow();
-            if (selectedRow == -1) {
-                return;
-            }
-            // TODO: This doesn't work yet
-            int index = nameList.convertRowIndexToModel(selectedRow);
-            Person oldPerson = controller.get(index);
-            PersonDialog dialog = new PersonDialog(this, oldPerson);
-            if (dialog.showDialog() != PersonDialog.Result.OK) {
-                return;
-            }
-            controller.set(index, dialog.getPerson());
-            saveItem.setEnabled(true);
-        });
+////        editButton.addActionListener(e -> {
+////            int selectedRow = nameList.getSelectedRow();
+////            if (selectedRow == -1) {
+////                return;
+////            }
+////            // TODO: This doesn't work yet
+////            int index = nameList.convertRowIndexToModel(selectedRow);
+////            Person oldPerson = controller.get(index);
+////            PersonDialog dialog = new PersonDialog(this, oldPerson);
+////            if (dialog.showDialog() != PersonDialog.Result.OK) {
+////                return;
+////            }
+//            controller.set(index, dialog.getPerson());
+//            saveItem.setEnabled(true);
+//        });
         addEditDelPanel.add(editButton);
         deleteButton.setMnemonic('D');
         deleteButton.addActionListener(e -> {

@@ -1,29 +1,50 @@
+import org.junit.jupiter.api.Test;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class AddressBook extends AbstractTableModel {
+
     private List<Person> persons = new ArrayList<>();
 
-   
     public Person[] getPersons() {
         return persons.toArray(new Person[persons.size()]);
     }
 
-  
+
+    @Test
+    void add(){
+        Person p = new Person("Test", "Test", "test 123",
+                "test city", "FL", "00000", "0000000000");
+        add(p);
+        assertEquals(persons.size(), 1);
+    }
+
     public void add(Person p) {
         int newIndex = persons.size();
         persons.add(p);
         fireTableRowsInserted(newIndex, newIndex);
     }
-
+    public static void main(String args[]){
+        Person p = new Person("fake", "person", "fake address",
+                "fake city", "fake state", "00000", "0000000000");
+        AddressBook test = new AddressBook();
+        test.add(p);
+        test.getPersons();
+        test.getColumnCount();
+        test.getColumnCount();
+    }
     /**
      * Sets the person at the given index to the Person specified.
      *
      * @param index  Index to update.
      * @param person Person to replace the item with.
      */
+
     public void set(int index, Person person) {
         persons.set(index, person);
         fireTableRowsUpdated(index, index);
