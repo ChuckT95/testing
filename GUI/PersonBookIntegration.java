@@ -31,12 +31,10 @@ public class PersonBookIntegration {
         persons.add(person()); //Add Person to list
         assertEquals(persons.get(0).getFirstName(), "Mocky"); //Check that the size of the new list contains one Person
     }
-//    @Test
-//    void getPersons() {
-//        persons.add(person()); //Add person to list
-//        Person[] pArr = new Person[] {person()}; //Create array containing all Persons
-//        assertArrayEquals(pArr,persons.toArray()); //Check if both arrays are equivalent
-//    }
+    @Test
+    void getPersons() {
+        throw new UnsupportedOperationException("Not Supported yet");
+    }
 
     @Test
     void set() {

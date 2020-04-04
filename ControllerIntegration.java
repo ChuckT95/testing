@@ -50,6 +50,7 @@ public class ControllerIntegration{
         assert(person.getFirstName() == "test");
         return(addressBook.get(0));
     }
+
     @Test
     public void clear() {
         addressBook.add(testingPerson);
@@ -64,13 +65,11 @@ public class ControllerIntegration{
     public void save() throws SQLException {
         throw new UnsupportedOperationException("Not Supported yet");
     }
+
     @Test
     public AddressBook getModel() {
         throw new UnsupportedOperationException("Not Supported yet");
     }
-
-
-
 
 }
 
