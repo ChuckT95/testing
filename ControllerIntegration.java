@@ -58,18 +58,15 @@ public class ControllerIntegration{
     }
     @Test
     public void open(){
-        System.out.println(addressBook);
+        throw new UnsupportedOperationException("Not Supported yet");
     }
     @Test
     public void save() throws SQLException {
-        System.out.println("functionality to be added");
-        assert(true);
+        throw new UnsupportedOperationException("Not Supported yet");
     }
     @Test
     public AddressBook getModel() {
-        AddressBook ret = addressBook;
-        assert(ret ==  addressBook);
-        return addressBook;
+        throw new UnsupportedOperationException("Not Supported yet");
     }
 
 
