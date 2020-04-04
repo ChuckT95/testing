@@ -78,24 +78,19 @@ public class PersonBookIntegration {
 
     @Test
     void getColumnCount() {
-        assertEquals(7,Person.fields.length); //Check that the Person has 7 attributes to it
+        throw new UnsupportedOperationException("Not Supported yet");
     }
 
-//todo switch values
 
-//    @Test
-//    void getValueAt() {
-//        int row = 0, col = 4; //Take an arbitrary value
-//        persons.add(person()); //Add Person to list
-//
-//        assertEquals("Test",persons.get(row).getField(col)); //Check we get the right value at that row, col input
-//    }
+
+    @Test
+    void getValueAt() {
+        throw new UnsupportedOperationException("Not Supported yet");
+    }
 
     @Test
     void getColumnName() {
-        int col = 3; //Take arbitrary column
-
-        assertEquals("City",Person.fields[col]); //Check the arbitrary column matches
+        throw new UnsupportedOperationException("Not Supported yet");
     }
 }
 
