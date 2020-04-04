@@ -107,4 +107,5 @@ class AddressBookTest {
 
     assertEquals("City",Person.fields[col]); //Check the arbitrary column matches
   }
+
 }

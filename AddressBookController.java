@@ -45,4 +45,5 @@ public class AddressBookController {
     public AddressBook getModel() {
         return addressBook;
     }
+
 }

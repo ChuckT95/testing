@@ -6,22 +6,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 public class AddressBook extends AbstractTableModel {
 
     private List<Person> persons = new ArrayList<>();
 
     public Person[] getPersons() {
         return persons.toArray(new Person[persons.size()]);
-    }
-
-
-    @Test
-    void add(){
-        Person p = new Person("Test", "Test", "test 123",
-                "test city", "FL", "00000", "0000000000");
-        add(p);
-        assertEquals(persons.size(), 1);
     }
 
     public void add(Person p) {
