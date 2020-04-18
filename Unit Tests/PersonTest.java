@@ -14,14 +14,16 @@ class PersonTest {
   //Create a new Person before each testing method is executed
   @BeforeEach
   void setUp(){
+    //Create new Person
     TestingPerson = new Person("test","test","123 Test", "Test", "Test", "Test", "Test");
   }
 
   @Test
   public void personConstructorTest(){
+    //Test that the Person we created has the right first name
     Assertions.assertEquals("test", TestingPerson.getFirstName());
-    Assertions.assertEquals("test", TestingPerson.getLastName());
 
+    //Should throw IllegalArgumentException if no name was passed for first or last name
     Assertions.assertThrows(IllegalArgumentException.class, () -> {Person TestingPerson2 = new Person(null, "test","123 Test", "Test", "Test", "Test", "Test");});
     Assertions.assertThrows(IllegalArgumentException.class, () -> {Person TestingPerson2 = new Person( "test", null,"123 Test", "Test", "Test", "Test", "Test");});
     Assertions.assertThrows(IllegalArgumentException.class, () -> {Person TestingPerson2 = new Person( "", "","123 Test", "Test", "Test", "Test", "Test");});
@@ -32,63 +34,73 @@ class PersonTest {
 
   @Test
   void getFirstName() {
-    String firstName = TestingPerson.getFirstName(); //Get First name of Person
-    Assertions.assertEquals("test",firstName); //Check first name matches
+    //Get First name of Person
+    String firstName = TestingPerson.getFirstName();
+    //Check first name matches
+    Assertions.assertEquals("test",firstName);
   }
 
   @Test
   void getLastName() {
-    
-    String lastName = TestingPerson.getLastName(); //Get last name of Person
-    Assertions.assertEquals("test",lastName); //Check last name matches
+    //Get last name of Person
+    String lastName = TestingPerson.getLastName();
+    //Check last name matches
+    Assertions.assertEquals("test",lastName);
   }
 
   @Test
   void getAddress() {
-    
-    String address = TestingPerson.getAddress(); //Get address  of Person
-    Assertions.assertEquals("123 Test",address);//Check address matches
+    //Get address  of Person
+    String address = TestingPerson.getAddress();
+    //Check address matches
+    Assertions.assertEquals("123 Test",address);
   }
 
   @Test
   void getCity() {
-    
-    String city = TestingPerson.getCity(); //Get city of Person
-    Assertions.assertEquals("Test",city); //Check city matches
+    //Get city of Person
+    String city = TestingPerson.getCity();
+    //Check city matches
+    Assertions.assertEquals("Test",city);
   }
 
   @Test
   void getState() {
-    
-    String state = TestingPerson.getState(); //Get state of Person
-    Assertions.assertEquals("Test",state); //Check state matches
+    //Get state of Person
+    String state = TestingPerson.getState();
+    //Check state matches
+    Assertions.assertEquals("Test",state);
   }
 
   @Test
   void getZip() {
-    
-    String zip = TestingPerson.getZip(); //Get zip of Person
-    Assertions.assertEquals("Test",zip); //Check zip matches
+    //Get zip of Person
+    String zip = TestingPerson.getZip();
+    //Check zip matches
+    Assertions.assertEquals("Test",zip);
   }
 
   @Test
   void getPhone() {
-    
-    String phone = TestingPerson.getPhone(); //Get phone of Person
-    Assertions.assertEquals("Test",phone); //Check phone matches
+    //Get phone of Person
+    String phone = TestingPerson.getPhone();
+    //Check phone matches
+    Assertions.assertEquals("Test",phone);
 
   }
 
 
   @Test
   public void toStringTest(){
+    //Should return string in form of "LastName, FirstName"
     assertEquals("test, test", TestingPerson.toString());
   }
 
   @Test
   void containsStringTest() {
-
+    //Create a new Person
     Person stringPerson = new Person("this","is", "a", "test", "person", "for", "testing");
+    //Check to see that each string is contained in the Person
     assertTrue(stringPerson.containsString("this"));
     assertTrue(stringPerson.containsString("is"));
     assertTrue(stringPerson.containsString("a"));
@@ -103,7 +115,7 @@ class PersonTest {
   @ParameterizedTest
   @ValueSource(ints = { -1,0,1,2,3,4,5,6,7 })
   void getFieldTest(int field) {
-    
+    //go through all test inputs, should go through each case
     switch (field) {
       case 0:
         Assertions.assertEquals("test",TestingPerson.getField(field)); //Check first name

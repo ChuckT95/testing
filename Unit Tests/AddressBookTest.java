@@ -21,49 +21,62 @@ class AddressBookTest {
   //This creates two new Person Objects
   @BeforeEach
   void setUp(){
+    //Create instance of an address book
     addressBook = new AddressBook();
+    //Create Test people to use later
     TestingPerson = new Person("test","test","123 Test", "Test", "Test", "Test", "Test");
     TestingPerson2 = new Person("test2","test","123 Test", "Test", "Test", "Test", "Test");
 
   }
 
 
+  //Method to test if an the correct array of Person'sis returned
   @Test
   void getPersonsTest() {
+    //Add the two People to the address book
     addressBook.add(TestingPerson);
     addressBook.add(TestingPerson2);
-    Person[] pArr = new Person[] {TestingPerson,TestingPerson2}; //Create array containing all Persons
-    assertArrayEquals(pArr, addressBook.getPersons()); //Check if both arrays are equivalent
+    //Create an array with the same two people
+    Person[] pArr = new Person[] {TestingPerson,TestingPerson2};
+    //Check to see if both the address book and array are equal
+    assertArrayEquals(pArr, addressBook.getPersons());
   }
 
   @Test
   //Test the add method
   void add() {
-    addressBook.add(TestingPerson); //Add Person to list
-    assertEquals(addressBook.getRowCount(),1); //Check that the size of the new list contains one Person
+    //Add person to address book
+    addressBook.add(TestingPerson);
+    //Check that the TestingPerson was added to the first entry of the address book
+    assertEquals(TestingPerson,addressBook.get(0));
   }
 
   @Test
   void set() {
-    addressBook.add(TestingPerson); //Add Person to list
-    addressBook.set(0,TestingPerson2); //Replace the 1st element in list with new Person
+    //Add Person to address book
+    addressBook.add(TestingPerson);
+    //Replace the 1st element in list with new Person
+    addressBook.set(0,TestingPerson2);
     //Check that the list now contains the second Person object instead of the first Person
-    assertEquals("test2", addressBook.get(0).getFirstName());
+    assertEquals(TestingPerson2, addressBook.get(0));
   }
 
   @Test
   void remove() {
-    addressBook.add(TestingPerson); //Add Person to list
-    addressBook.remove(0); //Remove the Person that was just added
-    assertEquals(0,addressBook.getRowCount()); //Check that there are now no elements in the list
+    //Add Person to address book
+    addressBook.add(TestingPerson);
+    //Remove the Person that was just added
+    addressBook.remove(0);
+    //Check that there are now no elements in the list
+    assertEquals(0,addressBook.getRowCount());
   }
 
   @ParameterizedTest
   @ValueSource(ints = {0,1})
   void get(int index) {
-
-    addressBook.add(TestingPerson); //Add Person 1 to list
-    addressBook.add(TestingPerson2); //Add Person 2 to list
+    //Add Person 1 to address book
+    addressBook.add(TestingPerson);
+    addressBook.add(TestingPerson2);
 
     //If we are testing 0, we should get the first person in the list
     //If we are testing 1, we should get the second person in the list
@@ -73,54 +86,51 @@ class AddressBookTest {
     else{
       assertEquals(TestingPerson2, addressBook.get(index));
     }
-    addressBook.clear();
-    assertEquals(0, addressBook.getRowCount());
 
   }
 
   @Test
   void clear() {
-//    AddressBook addressBook1 = new AddressBook(); //this was another attempt to cover that branch
-//    addressBook1.clear();
-//    assertEquals(null, addressBook.getPersons());
-    addressBook.add(TestingPerson); //Add Person to list
-    addressBook.clear(); //Clear the list
-    assertEquals(0,addressBook.getRowCount()); //Check that list contains 0 elements
+    //Add Person to address book
+    addressBook.add(TestingPerson);
+    //Clear the list
     addressBook.clear();
-    assertEquals(0, addressBook.getRowCount());
+    //Check that list contains 0 elements
+    assertEquals(0,addressBook.getRowCount());
 
-//    addressBook.clear(); //there is a second branch here, which is impossible to test,
-    // because persons is declared as a new array in the constructor, so it is never null, and persons is private,
-    // so cannot be directly set to null
-    // assertEquals(null, addressBook.getPersons());
   }
 
   @Test
   void getRowCount() {
-    addressBook.add(TestingPerson); //Add Person 1 to list
-    addressBook.add(TestingPerson2); //Add Person 2 to list
+    //Add Person 1 and 2 to address book
+    addressBook.add(TestingPerson);
+    addressBook.add(TestingPerson2);
 
-    assertEquals(2,addressBook.getRowCount()); //Check that 2 Persons were added to list
+    //Check that 2 Persons were added to list
+    assertEquals(2,addressBook.getRowCount());
   }
 
   @Test
   void getColumnCountTest() {
-    assertEquals(7, addressBook.getColumnCount()); //Check that the Person has 7 attributes to it
+    //Check that the Person has 7 attributes to it
+    assertEquals(7, addressBook.getColumnCount());
   }
 
   @Test
   void getValueAt() {
-    int row = 0, col = 4; //Take an arbitrary value
-    addressBook.add(TestingPerson); //Add Person to list
-
-    assertEquals("Test",addressBook.getValueAt(row, col)); //Check we get the right value at that row, col input
+    //Take an arbitrary value, in this case, (0,4) represents the city attribute of the Person
+    int row = 0, col = 4;
+    //Add Person to address book
+    addressBook.add(TestingPerson);
+    //Check we get the right value at that row, col input
+    assertEquals("Test",addressBook.getValueAt(row, col));
   }
 
   @Test
   void getColumnName() {
-    int col = 3; //Take arbitrary column
-
-    assertEquals("City",addressBook.getColumnName(col)); //Check the arbitrary column matches
+    int col = 3; //Take arbitrary column, in this case, 3 is the City index
+    //Check the arbitrary column matches
+    assertEquals("City",addressBook.getColumnName(col));
   }
 
 }

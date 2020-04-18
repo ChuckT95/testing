@@ -21,6 +21,7 @@ public class ControllerIntegration{
 
     @BeforeEach
     void setUp(){
+        //Create instances of a new Person
         testingPerson = new Person("test","test","123 Test", "Test", "Test", "Test", "Test");
         testingPerson2 = new Person("test2","test","123 Test", "Test", "Test", "Test", "Test");
 
@@ -28,15 +29,16 @@ public class ControllerIntegration{
 
     @Test
     public void add() {
+        //Add person to address book
         addressBook.add(testingPerson);
-        assert(addressBook.get(0).getFirstName() == "test");
+        assert(addressBook.get(0).getFirstName().equals("test"));
     }
     @Test
     public void set() {
         int index = 0;
         addressBook.add(testingPerson);
         addressBook.set(index, testingPerson2);
-        assert(addressBook.get(0).getFirstName() == "test2");
+        assert(addressBook.get(0).getFirstName().equals("test2"));
     }
     @Test
     public void remove(){
@@ -50,7 +52,7 @@ public class ControllerIntegration{
         addressBook.add(testingPerson);
         int index = 0;
         Person person = addressBook.get(0);
-        assert(person.getFirstName() == "test");
+        assert(person.getFirstName().equals("test"));
         return(addressBook.get(0));
     }
 
