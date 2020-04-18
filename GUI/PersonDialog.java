@@ -1,7 +1,7 @@
 //import org.jetbrains.annotations.Nullable;
 
 //import com.sun.istack.internal.Nullable;
-import org.jetbrains.annotations.Nullable;
+//import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,12 +23,12 @@ public class PersonDialog extends JDialog {
     private JTextField zip;
     private JTextField phone;
 
-  
+
     public PersonDialog(Frame parent) {
-        
+
         super(parent);
 
-        
+
         JLabel l;
         AtomicReference<JPanel> p = new AtomicReference<>(new JPanel(new SpringLayout()));
 
@@ -37,29 +37,32 @@ public class PersonDialog extends JDialog {
         firstName = new JTextField(20);
         l.setLabelFor(firstName);
         p.get().add(firstName);
+        //TODO: Check to make sure name doesnt have number before adding
 
-      
+
+
         l = new JLabel("Last name:", JLabel.TRAILING);
         p.get().add(l);
         lastName = new JTextField(20);
         l.setLabelFor(lastName);
         p.get().add(lastName);
 
-  
+
+
         l = new JLabel("Address:", JLabel.TRAILING);
         p.get().add(l);
         address = new JTextField(20);
         l.setLabelFor(address);
         p.get().add(address);
 
-     
+
         l = new JLabel("City:", JLabel.TRAILING);
         p.get().add(l);
         city = new JTextField(20);
         l.setLabelFor(city);
         p.get().add(city);
 
-       
+
         l = new JLabel("State:", JLabel.TRAILING);
         p.get().add(l);
         state = new JTextField(20);
@@ -72,24 +75,52 @@ public class PersonDialog extends JDialog {
         l.setLabelFor(zip);
         p.get().add(zip);
 
-       
+
+
         l = new JLabel("Telephone:", JLabel.TRAILING);
         p.get().add(l);
         phone = new JTextField(20);
         l.setLabelFor(phone);
         p.get().add(phone);
 
-        
+
         SpringUtilities.makeCompactGrid(p.get(), 7, 2, 6, 6, 6, 6);
 
         // Set up the buttons
         JPanel buttons = new JPanel();
         JButton okButton = new JButton("OK");
         okButton.setMnemonic('O');
+        // the following code checks the entries for validity, and blocks invalid entries.
         okButton.addActionListener(e ->
         {
-            result = Result.OK;
-            setVisible(false);
+            boolean validZip = zip.getText().matches("[0-9]+") && zip.getText().length() == 5;
+            boolean validFName = firstName.getText().matches("^[a-zA-Z]*$");
+            boolean validLName = lastName.getText().matches("^[a-zA-Z]*$");
+            boolean validPhone = phone.getText().matches("[0-9]+") && phone.getText().length() == 10;
+            if(validFName && validLName && validZip && validPhone){
+                result = Result.OK;
+                setVisible(false);
+            }
+            else{
+                //Display message to user to indicate which field is invalid
+                String fixInputs = "\n";
+                if(!validZip){
+                    fixInputs += "ZIP\n";
+                }
+                if(!validFName){
+                    fixInputs += "First Name\n";
+                }
+                if(!validPhone){
+                    fixInputs += "Phone Number\n";
+                }
+                if(!validLName){
+                    fixInputs += "Last Name\n";
+                }
+                JOptionPane.showMessageDialog(null, "Fix the following fields: " + fixInputs);
+
+
+            }
+
         });
         buttons.add(okButton);
         JButton cancelButton = new JButton("Cancel");
@@ -105,26 +136,26 @@ public class PersonDialog extends JDialog {
         getContentPane().add(p.get(), BorderLayout.CENTER);
         getContentPane().add(buttons, BorderLayout.PAGE_END);
         pack();
-        setTitle("Person Information");
+        setTitle("Classes.Person Information");
         setModalityType(ModalityType.DOCUMENT_MODAL);
         setLocation((parent.getWidth() - getWidth()) / 2, (parent.getHeight() - getHeight()) / 2);
     }
 
-  
-    public PersonDialog(Frame parent, @Nullable Person person) {
-        this(parent);
-        if (person == null)
-            return;
-        firstName.setText(person.getFirstName());
-        lastName.setText(person.getLastName());
-        address.setText(person.getAddress());
-        city.setText(person.getCity());
-        state.setText(person.getState());
-        zip.setText(person.getZip());
-        phone.setText(person.getPhone());
-    }
 
-    
+//    public Classes.PersonDialog(Frame parent, @Nullable Classes.Person person) {
+//        this(parent);
+//        if (person == null)
+//            return;
+//        firstName.setText(person.getFirstName());
+//        lastName.setText(person.getLastName());
+//        address.setText(person.getAddress());
+//        city.setText(person.getCity());
+//        state.setText(person.getState());
+//        zip.setText(person.getZip());
+//        phone.setText(person.getPhone());
+//    }
+
+
     public Result showDialog() {
         // Default to CANCEL if the user closes the dialog window
         result = Result.CANCEL;
@@ -132,7 +163,7 @@ public class PersonDialog extends JDialog {
         return result;
     }
 
- 
+
     public Person getPerson() {
         if (firstName != null && lastName != null && !firstName.getText().isEmpty() && !lastName.getText().isEmpty()) {
             return new Person(firstName.getText(),

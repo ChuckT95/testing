@@ -43,6 +43,7 @@ public class AddressBookGUI extends JFrame {
 
    
     public AddressBookGUI(AddressBookController controller, AddressBook addressBook) {
+
         // Set our local variables
         this.controller = controller;
         this.addressBook = addressBook;
@@ -81,6 +82,7 @@ public class AddressBookGUI extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error loading file: " + ex.getMessage(), "Open", JOptionPane.ERROR_MESSAGE);
             }
         });
+
         file.add(openItem);
         saveItem.setEnabled(false);
         saveItem.addActionListener(e ->
@@ -134,6 +136,7 @@ public class AddressBookGUI extends JFrame {
         searchTextField.getDocument().addDocumentListener(new DocumentListener() {
             // Listen to the Document so the list filters immediately
             // (EventListener on JTextField requires "Enter" before firing)
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 filter();
@@ -170,6 +173,7 @@ public class AddressBookGUI extends JFrame {
         });
         addEditDelPanel.add(addButton);
         editButton.setMnemonic('E');
+
 ////        editButton.addActionListener(e -> {
 ////            int selectedRow = nameList.getSelectedRow();
 ////            if (selectedRow == -1) {
@@ -185,6 +189,7 @@ public class AddressBookGUI extends JFrame {
 //            controller.set(index, dialog.getPerson());
 //            saveItem.setEnabled(true);
 //        });
+
         addEditDelPanel.add(editButton);
         deleteButton.setMnemonic('D');
         deleteButton.addActionListener(e -> {
