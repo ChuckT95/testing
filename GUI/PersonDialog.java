@@ -176,7 +176,7 @@ public class PersonDialog extends JDialog {
             return null;
         }
     }
-    //TODO: Create test method for this?
+
     public void setPerson(Person person){
         this.firstName.setText(person.getFirstName());
         this.lastName.setText(person.getLastName());
