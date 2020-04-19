@@ -97,7 +97,6 @@ class AddressBookTest {
     addressBook.clear();
     //Check that list contains 0 elements
     assertEquals(0,addressBook.getRowCount());
-
   }
 
   @Test

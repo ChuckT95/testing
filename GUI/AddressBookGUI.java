@@ -77,10 +77,12 @@ public class AddressBookGUI extends JFrame {
             try {
                 controller.open(jfc.getSelectedFile());
                 currentFile = jfc.getSelectedFile();
+                setTitle(jfc.getSelectedFile().getName());
                 saveItem.setEnabled(false);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Error loading file: " + ex.getMessage(), "Open", JOptionPane.ERROR_MESSAGE);
             }
+
         });
 
         file.add(openItem);
@@ -113,6 +115,7 @@ public class AddressBookGUI extends JFrame {
             if (currentFile.exists() && JOptionPane.YES_OPTION != JOptionPane.showConfirmDialog(this, "Are you sure you want to overwrite this file?", "Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)) {
                 return;
             }
+            setTitle(jfc.getSelectedFile().getName());
             saveItem.doClick();
         });
         file.add(saveAsItem);
@@ -174,21 +177,21 @@ public class AddressBookGUI extends JFrame {
         addEditDelPanel.add(addButton);
         editButton.setMnemonic('E');
 
-////        editButton.addActionListener(e -> {
-////            int selectedRow = nameList.getSelectedRow();
-////            if (selectedRow == -1) {
-////                return;
-////            }
-////            // TODO: This doesn't work yet
-////            int index = nameList.convertRowIndexToModel(selectedRow);
-////            Person oldPerson = controller.get(index);
-////            PersonDialog dialog = new PersonDialog(this, oldPerson);
-////            if (dialog.showDialog() != PersonDialog.Result.OK) {
-////                return;
-////            }
-//            controller.set(index, dialog.getPerson());
-//            saveItem.setEnabled(true);
-//        });
+        editButton.addActionListener(e -> {
+            int selectedRow = nameList.getSelectedRow();
+            if (selectedRow == -1) {
+                return;
+            }
+            int index = nameList.convertRowIndexToModel(selectedRow);
+            Person oldPerson = controller.get(index);
+            PersonDialog dialog = new PersonDialog(this);
+            dialog.setPerson(oldPerson);
+            if (dialog.showDialog() != PersonDialog.Result.OK) {
+                return;
+            }
+            controller.set(index, dialog.getPerson());
+            saveItem.setEnabled(true);
+        });
 
         addEditDelPanel.add(editButton);
         deleteButton.setMnemonic('D');

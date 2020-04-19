@@ -37,7 +37,6 @@ public class PersonDialog extends JDialog {
         firstName = new JTextField(20);
         l.setLabelFor(firstName);
         p.get().add(firstName);
-        //TODO: Check to make sure name doesnt have number before adding
 
 
 
@@ -176,5 +175,15 @@ public class PersonDialog extends JDialog {
         } else {
             return null;
         }
+    }
+    //TODO: Create test method for this?
+    public void setPerson(Person person){
+        this.firstName.setText(person.getFirstName());
+        this.lastName.setText(person.getLastName());
+        this.address.setText(person.getAddress());
+        this.city.setText(person.getCity());
+        this.state.setText(person.getState());
+        this.zip.setText(person.getZip());
+        this.phone.setText(person.getPhone());
     }
 }
