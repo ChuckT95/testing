@@ -46,8 +46,8 @@ public class ControllerIntegration {
     void setUp() {
         // creating an address book, mock people, and a controller for the purposes of each test
         addressBook = new AddressBook();
-        testingPerson = mock(Person.class);
-        testingPerson2 = mock(Person.class);
+        testingPerson = person();
+        testingPerson2 = person();
         controllerIntegration = new AddressBookController(addressBook);
 
     }
@@ -102,7 +102,7 @@ public class ControllerIntegration {
 
     //these tests are made under the scenario that the FileSystem class has not been written yet
     @Test
-    public void open() {
+    public void openTestIncomplete() {
         assertThrows(UnsupportedOperationException.class, () -> {
             throw new UnsupportedOperationException("Not Supported yet");
         });
@@ -110,18 +110,25 @@ public class ControllerIntegration {
 
     //these tests are made under the scenario that the FileSystem class has not been written yet
     @Test
-    public void save() throws SQLException {
+    public void saveTestIncomplete() throws SQLException {
         assertThrows(UnsupportedOperationException.class, () -> {
             throw new UnsupportedOperationException("Not Supported yet");
         });
     }
 
-    //these tests are made under the scenario that the FileSystem class has not been written yet
+
+
+    @Test
+    public void saveTest() throws SQLException {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            throw new UnsupportedOperationException("Not Supported yet");
+        });
+    }
+
     @Test
     public void getModel() {
-        assertThrows(UnsupportedOperationException.class, () -> {
-            throw new UnsupportedOperationException("Not Supported yet");
-        });
+        //The getModel from Controller class should return the AddressBook that was passed in
+        assertEquals(this.addressBook,controllerIntegration.getModel());
     }
 }
 
